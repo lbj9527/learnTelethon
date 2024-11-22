@@ -1,10 +1,7 @@
 from telethon import TelegramClient
 import python_socks
 import cryptg
-
-# Use your own values from my.telegram.org
-api_id = 25448404
-api_hash = '0c910748a61fc30bb14e073a31933fb6'
+from data import *
 
 client = TelegramClient('anon', api_id, api_hash, proxy=(python_socks.ProxyType.SOCKS5, '127.0.0.1', 1089))
 
@@ -54,21 +51,21 @@ async def main():
     # print(message.raw_text)
 
     # 获取message对象，自己发消息自己回消息
-    # message = await client.send_message('@link95274', 'Hello, myself!')
-    # await message.reply('Cool!')
+    message = await client.send_message('me', 'Hello, myself!')
+    await message.reply('Cool!')
 
     # # Or send files, songs, documents, albums...
     #await client.send_file('me', 'D:\\python-project\\learnTelethon\\src\\2.jpg')
 
     # You can print the message history of any chat:
-    async for message in client.iter_messages('me'):
-        print(message.id, message.text)
+    # async for message in client.iter_messages('me'):
+    #     print(message.id, message.text)
 
-        # You can download media from messages, too!
-        # The method will return the path where the file was saved.
-        if message.photo:
-            path = await message.download_media()
-            print('File saved to', path)  # printed after download is done
+    #     # You can download media from messages, too!
+    #     # The method will return the path where the file was saved.
+    #     if message.photo:
+    #         path = await message.download_media()
+    #         print('File saved to', path)  # printed after download is done
 
 with client:
     client.loop.run_until_complete(main())
