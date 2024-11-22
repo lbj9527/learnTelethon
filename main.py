@@ -57,11 +57,11 @@ async def main():
     # # Or send files, songs, documents, albums...
     #await client.send_file('me', 'D:\\python-project\\learnTelethon\\src\\2.jpg')
 
-    # You can print the message history of any chat:
+    # 打印任何群组或频道的历史消息
     # async for message in client.iter_messages('me'):
     #     print(message.id, message.text)
 
-    #     # You can download media from messages, too!
+    #     # 也可以从message中下载媒体文件
     #     # The method will return the path where the file was saved.
     #     if message.photo:
     #         path = await message.download_media()
